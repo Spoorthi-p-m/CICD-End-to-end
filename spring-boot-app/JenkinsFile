@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'spoorthipm/my-maven-java21-docker-agent:latest'
-      args '-v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
+      args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
   }
   stages {
