@@ -56,8 +56,7 @@ pipeline {
                     git config --global --add safe.directory "$(pwd)"
                     git config user.email "spoorthipm2803@gmail.com"
                     git config user.name "Spoorthi P M"
-                    BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i "s|image: spoorthipm/ultimate-cicd:.*|image: spoorthipm/ultimate-cicd:${BUILD_NUMBER}|" spring-boot                    -app-manifests/deployment.yml
+                    BUILD_NUMBER=${BUILD_NUMBER}                   
                     git add spring-boot-app-manifests/deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
