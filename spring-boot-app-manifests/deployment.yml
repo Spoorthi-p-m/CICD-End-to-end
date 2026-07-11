@@ -15,7 +15,21 @@ spec:
         app: spring-boot-app
     spec:
       containers:
-      - name: spring-boot-app
-        image: abhishekf5/ultimate-cicd:replaceImageTag
-        ports:
-        - containerPort: 8080
+        - name: spring-boot-app
+          image: spoorthipm/ultimate-cicd:26
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            failureThreshold: 3
