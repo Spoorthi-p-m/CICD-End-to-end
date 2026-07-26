@@ -55,7 +55,6 @@ GitHub (source) → Jenkins → SonarQube → Docker Hub → GitHub (manifests) 
 │   ├── Dockerfile
 │   ├── JenkinsFile
 │   ├── README.md
-│   ├── argocd-basic.yml
 │   └── pom.xml
 ├── README.md
 └── argocd-application.yaml
