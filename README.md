@@ -44,14 +44,21 @@ GitHub (source) → Jenkins → SonarQube → Docker Hub → GitHub (manifests) 
 
 ```
 .
-├── Jenkinsfile                     # Pipeline definition
-├── pom.xml                         # Maven build configuration
-├── Dockerfile                      # Container image build steps
-├── src/                            # Spring Boot application source
+├── Argo CD/
+│   └── argocd-basic.yaml
 ├── spring-boot-app-manifests/
-│   ├── deployment.yml              # Kubernetes Deployment (probes, resource limits)
-│   └── service.yml                 # Kubernetes Service (NodePort)
-└── argocd-application.yaml         # Argo CD Application definition (version-controlled)
+│   ├── deployment.yml
+│   └── service.yml
+├── spring-boot-app/
+│   ├── src/main/
+│   ├── .gitignore
+│   ├── Dockerfile
+│   ├── JenkinsFile
+│   ├── README.md
+│   ├── argocd-basic.yml
+│   └── pom.xml
+├── README.md
+└── argocd-application.yaml
 ```
 
 ## Pipeline stages (Jenkinsfile)
